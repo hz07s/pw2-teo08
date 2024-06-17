@@ -5,6 +5,12 @@ from .forms import PersonaForm, rawPersonaForm
 # Create your views here.
 def personasAnotherCreateView(request):
     form = rawPersonaForm()
+    if request.method == "POST":
+        form = rawPersonaForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+        else:
+            print(form.errors)
     context = {
         'form' : form,
     }
