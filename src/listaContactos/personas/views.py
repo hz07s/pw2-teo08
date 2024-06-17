@@ -1,8 +1,16 @@
 from django.shortcuts import render
 from .models import Persona
-from .forms import PersonaForm
+from .forms import PersonaForm, rawPersonaForm
 
 # Create your views here.
+def personasAnotherCreateView(request):
+    form = rawPersonaForm()
+    context = {
+        'form' : form,
+    }
+    return render(request, 'personas/personasCreate.html', context)
+
+
 def personaTextView(request):
     obj = Persona.objects.get(id = 1)
     context = {
