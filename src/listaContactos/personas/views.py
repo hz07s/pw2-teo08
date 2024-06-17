@@ -26,7 +26,8 @@ def personaTextView(request):
     return render(request, 'personas/descripcion.html', context)
 
 def personaCreateView(request):
-    form = PersonaForm(request.POST or None)
+    obj = Persona.objects.get(id = 2)
+    form = PersonaForm(request.POST or None, instance = obj)
     if form.is_valid():
         form.save()
         form = PersonaForm()
