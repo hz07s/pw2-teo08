@@ -41,3 +41,10 @@ def personaCreateView(request):
 
 def searchForHelp(request):
     return render(request, 'personas/search.html', {})
+
+def personasShowObject(request, myID):
+    obj = Persona.objects.get(id = myID)
+    context = {
+        'objeto' : obj
+    }
+    return render(request, 'personas/descripcion.html', context)
