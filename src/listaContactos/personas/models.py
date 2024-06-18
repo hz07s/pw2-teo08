@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Persona(models.Model):
     nombres   = models.TextField(max_length=100)
@@ -7,5 +8,4 @@ class Persona(models.Model):
     donador   = models.BooleanField()
 
     def get_absolute_url(self):
-        return "/personas/" + str(self.id) + "/"
-    
+        return reverse('browsing', kwargs={'myID' : self.id})
