@@ -24,6 +24,7 @@ from personas.views import (
     searchForHelp,
     personasAnotherCreateView,
     personasShowObject,
+    personasListView,
 )
 
 urlpatterns = [
@@ -35,4 +36,5 @@ urlpatterns = [
     path('agregar/', personaCreateView, name='createPersona'),
     path('anotherAdd', personasAnotherCreateView, name='OtroAgregarPersonas'),
     path('personas/<int:myID>/', personasShowObject, name = 'browsing'),
+    path('personas/', personasListView, name = 'listing'),
 ]
