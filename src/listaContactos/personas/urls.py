@@ -8,10 +8,12 @@ from .views import (
     personasListView,
     personasDeleteView,
     PersonaListView,
+    PersonaDetailView,
 )
 
 app_name = 'personas'
 urlpatterns = [
+    path('<int:pk>/', PersonaDetailView.as_view(), name = 'persona-detail'),
     path('', PersonaListView.as_view(), name = 'persona-list'),
     path('search/', searchForHelp, name='buscar'),
     path('persona/', personaTextView, name='otro'),
