@@ -6,8 +6,15 @@ from django.views.generic import (
 )
 
 # Create your views here.
-def PersonaListView(ListView):
+class PersonaListView(ListView):
     model = Persona
+    #template_name = 'personas/personasList.html'
+    #context_object_name = 'objectList'
+    # queryset = Persona.objects.all()
+    # context = {
+    #     'objectList' : queryset,
+    # }
+    # return render(request, 'personas/personasList.html', context)
 
 def personasAnotherCreateView(request):
     form = rawPersonaForm()

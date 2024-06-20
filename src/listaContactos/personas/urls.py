@@ -18,6 +18,6 @@ urlpatterns = [
     path('add/', personaCreateView, name='adding'),
     path('anotherAdd', personasAnotherCreateView, name='OtroAgregarPersonas'),
     path('<int:myID>/', personasShowObject, name = 'browsing'),
-    path('', personasListView, name = 'listing'),
+    #path('listing', personasListView, name = 'listing'),
     path('<int:myID>/delete/', personasDeleteView, name = 'deleting'),
 ]
