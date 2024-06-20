@@ -9,11 +9,13 @@ from .views import (
     personasDeleteView,
     PersonaListView,
     PersonaDetailView,
-    PersonaCreateView
+    PersonaCreateView,
+    PersonaUpdateView,
 )
 
 app_name = 'personas'
 urlpatterns = [
+    path('<int:pk>/update/', PersonaUpdateView.as_view(), name = 'persona-update'),
     path('create/', PersonaCreateView.as_view(), name='persona-create'),
     path('<int:pk>/', PersonaDetailView.as_view(), name = 'persona-detail'),
     path('', PersonaListView.as_view(), name = 'persona-list'),
