@@ -12,10 +12,12 @@ from .views import (
     PersonaCreateView,
     PersonaUpdateView,
     PersonaDeleteView,
+    PersonaQueryView,
 )
 
 app_name = 'personas'
 urlpatterns = [
+    path('query', PersonaQueryView.as_view(), name = 'persona-query'),
     path('<int:pk>/delete/', PersonaDeleteView.as_view(), name = 'persona-delete'),
     path('<int:pk>/update/', PersonaUpdateView.as_view(), name = 'persona-update'),
     path('create/', PersonaCreateView.as_view(), name='persona-create'),
