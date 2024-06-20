@@ -3,10 +3,20 @@ from .models import Persona
 from .forms import PersonaForm, rawPersonaForm
 from django.views.generic import (
     ListView,
-    DetailView
+    DetailView,
+    CreateView
 )
 
 # Create your views here.
+class PersonaCreateView(CreateView):
+    model = Persona
+    fields = [
+        'nombres',
+        'apellidos',
+        'edad',
+        'donador'
+    ]
+
 class PersonaDetailView(DetailView):
     model = Persona
 
