@@ -10,12 +10,13 @@ from django.views.generic import (
     DeleteView,
 )
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 class PersonaQueryView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Hola Mundo con Clases')
+        queryset = Persona.objects.filter(edad__lte='40')
+        return JsonResponse(list(queryset.values()), safe = False)
 
 class PersonaDeleteView(DeleteView):
     model = Persona
